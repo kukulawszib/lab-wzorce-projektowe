@@ -10,11 +10,14 @@ public class Application {
         orderReadService.read();
 
         // with facade
-        OrderFacade orderFacade = new OrderFacade(new OrderCreateService(), new OrderReadService(), orderUpdateService, orderDeleteService);
+        OrderFacade orderFacade = new OrderFacade(
+                new OrderCreateService(),
+                new OrderReadService(),
+                new OrderUpdateService(),
+                new OrderDeleteService()
+        );
         orderFacade.create();
         orderFacade.read();
-
-        // TODO zad: rozszerz fasadę o metody update i delete
     }
 
 }
