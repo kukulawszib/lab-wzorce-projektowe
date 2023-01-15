@@ -14,6 +14,24 @@ public record Person(
         return new AutoBuilder_Person_Builder();
     }
 
+    public static Person male(
+            String firstName,
+            String lastName,
+            Integer age,
+            Address address
+    ) {
+        return new Person(firstName, lastName, age, Gender.MALE, address);
+    }
+
+    public static Person female(
+            String firstName,
+            String lastName,
+            Integer age,
+            Address address
+    ) {
+        return new Person(firstName, lastName, age, Gender.FEMALE, address);
+    }
+
     @AutoBuilder
     interface Builder {
         Builder firstName(String firstName);
