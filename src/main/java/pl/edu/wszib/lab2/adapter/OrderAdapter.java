@@ -1,5 +1,6 @@
 package pl.edu.wszib.lab2.adapter;
 
+import pl.edu.wszib.lab2.adapter.product.ProductService;
 import pl.edu.wszib.lab2.adapter.toadapt.Order;
 import pl.edu.wszib.lab2.adapter.toadapt.OrderItem;
 
@@ -9,9 +10,12 @@ import java.util.stream.Collectors;
 
 public class OrderAdapter {
     private final OrderService orderService;
+    private final ProductService productService;
 
-    public OrderAdapter(OrderService orderService) {
+    public OrderAdapter(OrderService orderService,
+                        ProductService productService) {
         this.orderService = orderService;
+        this.productService = productService;
     }
 
     public void handle(Order order) {
@@ -33,8 +37,10 @@ public class OrderAdapter {
     }
 
     private pl.edu.wszib.lab2.adapter.OrderItem adapt(OrderItem item) {
+        String name = productService.getById(item.productId.id).name;
         return new pl.edu.wszib.lab2.adapter.OrderItem(
                 item.productId.id,
+                name,
                 item.quantity,
                 item.price
         );
