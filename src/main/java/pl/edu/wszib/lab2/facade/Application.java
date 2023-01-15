@@ -10,7 +10,7 @@ public class Application {
         orderReadService.read();
 
         // with facade
-        OrderFacade orderFacade = new OrderFacade(new OrderCreateService(), new OrderReadService());
+        OrderFacade orderFacade = new OrderFacade(new OrderCreateService(), new OrderReadService(), orderUpdateService, orderDeleteService);
         orderFacade.create();
         orderFacade.read();
 

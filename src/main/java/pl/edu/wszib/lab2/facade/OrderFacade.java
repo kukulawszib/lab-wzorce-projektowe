@@ -5,12 +5,18 @@ public class OrderFacade {
     // create, read, update, delete
     private final OrderCreateService orderCreateService;
     private final OrderReadService orderReadService;
+    private final OrderUpdateService orderUpdateService;
+    private final OrderDeleteService orderDeleteService;
 
     public OrderFacade(
             OrderCreateService orderCreateService,
-            OrderReadService orderReadService) {
+            OrderReadService orderReadService,
+            OrderUpdateService orderUpdateService,
+            OrderDeleteService orderDeleteService) {
         this.orderCreateService = orderCreateService;
         this.orderReadService = orderReadService;
+        this.orderUpdateService = orderUpdateService;
+        this.orderDeleteService = orderDeleteService;
     }
 
     public void create() {
@@ -19,5 +25,13 @@ public class OrderFacade {
 
     public void read() {
         orderReadService.read();
+    }
+
+    public void update() {
+        orderUpdateService.update();
+    }
+
+    public void delete() {
+        orderDeleteService.delete();
     }
 }
