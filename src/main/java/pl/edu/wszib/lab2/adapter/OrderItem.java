@@ -3,9 +3,9 @@ package pl.edu.wszib.lab2.adapter;
 import java.math.BigDecimal;
 
 public class OrderItem {
-    private final String productId;
-    private final BigDecimal quantity;
-    private final BigDecimal price;
+    public final String productId;
+    public final BigDecimal quantity;
+    public final BigDecimal price;
 
     public OrderItem(String productId, BigDecimal quantity, BigDecimal price) {
         this.productId = productId;
