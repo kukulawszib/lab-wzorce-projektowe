@@ -10,7 +10,5 @@ public class Application {
                 new LogAroundOrderServiceDecorator(simpleOrderService)
         );
         decoratedOrderService.handle("Test name");
-
-        // TODO zad: utworzyć Decorator, który dla nazw zawierających słówko "test" podwaja zwracaną wartość
     }
 }
