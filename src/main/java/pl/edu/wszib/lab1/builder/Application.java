@@ -14,6 +14,8 @@ public class Application {
                 .postalCode("43-250")
                 .build();
         personBuilder.address(address);
+        MyRecord myRecord = new MyRecord("test", "myNewVar");
+        myRecord.myNewVar();
     }
 }
 
