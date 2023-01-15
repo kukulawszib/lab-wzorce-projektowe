@@ -14,10 +14,15 @@ public final class ConnectionLazy {
         }
     }
 
-    public synchronized static ConnectionLazy getInstance() {
+    public static ConnectionLazy getInstance() {
+        // double check locking
         if (INSTANCE == null) {
-            counter.incrementAndGet();
-            INSTANCE = new ConnectionLazy();
+            synchronized (ConnectionLazy.class) {
+                if (INSTANCE == null) {
+                    counter.incrementAndGet();
+                    INSTANCE = new ConnectionLazy();
+                }
+            }
         }
         return INSTANCE;
     }
