@@ -1,8 +1,11 @@
 package pl.edu.wszib.lab2.facade;
 
-public class OrderCreateService {
+import pl.edu.wszib.lab2.facade.api.OrderCreateOperation;
 
-    void create(/** some order**/) {
+public class OrderCreateService implements OrderCreateOperation {
+
+    @Override
+    public void create(/** some order**/) {
 
     }
 }

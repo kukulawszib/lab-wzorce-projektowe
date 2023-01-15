@@ -1,8 +1,11 @@
 package pl.edu.wszib.lab2.facade;
 
-public class OrderDeleteService {
+import pl.edu.wszib.lab2.facade.api.OrderDeleteOperation;
 
-    void delete() {
+public class OrderDeleteService implements OrderDeleteOperation {
+
+    @Override
+    public void delete() {
 
     }
 }

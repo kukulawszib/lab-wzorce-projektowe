@@ -18,6 +18,18 @@ public class Application {
         );
         orderFacade.create();
         orderFacade.read();
+
+        // SOLID
+        // Single responsibility
+        // Open-closed
+        // Liskov
+        // Interface segregation
+        // Dependency inversion
+
+        // moduły:
+        // - api - dtosy + interfejsy
+        // - application/domain - implementacje interfejsów
+
     }
 
 }

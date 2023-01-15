@@ -1,8 +1,11 @@
 package pl.edu.wszib.lab2.facade;
 
-public class OrderUpdateService {
+import pl.edu.wszib.lab2.facade.api.OrderUpdateUpdate;
 
-    void update() {
+public class OrderUpdateService implements OrderUpdateUpdate {
+
+    @Override
+    public void update() {
 
     }
 }
