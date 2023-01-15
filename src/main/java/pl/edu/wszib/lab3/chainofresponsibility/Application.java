@@ -4,13 +4,22 @@ import java.util.Map;
 
 public class Application {
     public static void main(String[] args) {
-        final HttpRequest httpRequest = new HttpRequest(
-                "https://google.com",
-                "GET",
-                Map.of("accept", "text/html"),
-                null
-        );
         final AbstractFilter filter = createHttpFilter();
+//        final HttpRequest httpRequest = new HttpRequest(
+//                "https://google.com",
+//                "GET",
+//                Map.of("accept", "text/html"),
+//                null
+//        );
+        HttpRequest httpRequest = new HttpRequest(
+                "https://google.com",
+                "POST",
+                Map.of(
+                        "Content-Type", "application/json",
+                        "Accept", "application/json"
+                ),
+                "{}"
+        );
         boolean result = filter.filter(httpRequest);
 
         // Zadanie:
@@ -20,7 +29,7 @@ public class Application {
 
     private static AbstractFilter createHttpFilter() {
         return new LoggingFilter(
-                new HttpsOnlyFilter(new NoopFilter())
+                new HttpsOnlyFilter(new ResultJsonOnlyFilter(new AcceptJsonOnlyFilter(new NoopFilter())))
         );
     }
 }
