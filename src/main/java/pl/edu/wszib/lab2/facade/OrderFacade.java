@@ -1,43 +1,51 @@
 package pl.edu.wszib.lab2.facade;
 
-import pl.edu.wszib.lab2.facade.api.OrderOperations;
+import pl.edu.wszib.lab2.facade.api.*;
 
 public class OrderFacade implements OrderOperations {
 
     // create, read, update, delete
-    private final OrderCreateService orderCreateService;
-    private final OrderReadService orderReadService;
-    private final OrderUpdateService orderUpdateService;
-    private final OrderDeleteService orderDeleteService;
+    private final OrderCreateOperation orderCreateOperation;
+    private final OrderReadOperation orderReadOperation;
+    private final OrderUpdateOperation orderUpdateOperation;
+    private final OrderDeleteOperation orderDeleteOperation;
+    private final OrderProcessOperation orderProcessOperation;
 
     public OrderFacade(
-            final OrderCreateService orderCreateService,
-            final OrderReadService orderReadService,
-            final OrderUpdateService orderUpdateService,
-            final OrderDeleteService orderDeleteService) {
-        this.orderCreateService = orderCreateService;
-        this.orderReadService = orderReadService;
-        this.orderUpdateService = orderUpdateService;
-        this.orderDeleteService = orderDeleteService;
+            final OrderCreateOperation orderCreateOperation,
+            final OrderReadOperation orderReadOperation,
+            final OrderUpdateOperation orderUpdateOperation,
+            final OrderDeleteOperation orderDeleteOperation,
+            final OrderProcessOperation orderProcessOperation) {
+        this.orderCreateOperation = orderCreateOperation;
+        this.orderReadOperation = orderReadOperation;
+        this.orderUpdateOperation = orderUpdateOperation;
+        this.orderDeleteOperation = orderDeleteOperation;
+        this.orderProcessOperation = orderProcessOperation;
     }
 
     @Override
     public void create() {
-        orderCreateService.create();
+        orderCreateOperation.create();
     }
 
     @Override
     public void read() {
-        orderReadService.read();
+        orderReadOperation.read();
     }
 
     @Override
     public void update() {
-        orderUpdateService.update();
+        orderUpdateOperation.update();
     }
 
     @Override
     public void delete() {
-        orderDeleteService.delete();
+        orderDeleteOperation.delete();
+    }
+
+    @Override
+    public void process() {
+        orderProcessOperation.process();
     }
 }

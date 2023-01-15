@@ -14,8 +14,8 @@ public class Application {
                 new OrderCreateService(),
                 new OrderReadService(),
                 new OrderUpdateService(),
-                new OrderDeleteService()
-        );
+                new OrderDeleteService(),
+                new OrderProcessService());
         orderFacade.create();
         orderFacade.read();
 
